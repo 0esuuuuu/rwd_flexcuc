@@ -1,0 +1,630 @@
+@charset "UTF-8";
+
+.main_slider_wrap {
+  position: relative;
+}
+.main_slider {
+  height: 100vh;
+}
+.main_slider .slide01 {
+  background: url(../images/swiper01_img_pc.jpg) no-repeat 50% 50% / cover;
+}
+.main_slider .swiper-slide p {
+  position: absolute;
+  left: 0;
+  top: 24%;
+  width: 100%;
+  transition: transform 0.7s, opacity 0.7s;
+  transform: translateY(50px);
+  opacity: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 100;
+  letter-spacing: 1.06em;
+}
+.main_slider .swiper-slide p br {
+  display: none;
+}
+.main_slider .swiper-slide p strong {
+  font-weight: 700
+}
+/* 효과는 따로 클래스 필요없이 슬라이드 엑티브를 이용해서 줌 */
+.main_slider .swiper-slide-active p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.main_slider_wrap .scroll_ani {
+  position: absolute;
+  left: 50%;
+  bottom: 48px;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 1.4rem;
+  font-family: 'Montserrat',sans-serif;
+  font-weight: 600;
+  z-index: 100;
+}
+
+/* trasform-orgin: 요소의 기준을 바꿔줌 */
+/* top에서 늘어나게 한 뒤 요소 기준을 bottom으로 바꿔 bottom 1에서 0으로 줄어줌 */
+@keyframes scaleLine {
+  0% {
+    transform-origin: top;
+  }
+  49% { 
+    transform-origin: top;
+  }
+  50% {
+    transform-origin: bottom;
+    transform: scaleY(1);
+  }
+  100% {
+    transform-origin: bottom;
+    transform: scaleY(0);
+  }
+}
+.main_slider_wrap .scroll_ani:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  width: 1px;
+  height: 40px;
+  background: #fff;
+  transform: scaleY(0);
+  animation: scaleLine 1.5s linear infinite;
+
+}
+
+/* 메인 인포 */
+.main_info {
+  padding: 100px 0;
+}
+.main_info .inner {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.main_info .info {
+  display: flex;
+  justify-content: space-between;
+}
+.main_info .info .txt_wrap {
+  text-align: right;
+  padding-left: 22px;
+}
+.main_info .info .txt_wrap h3 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+.main_info .info .txt_wrap h3 em {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.main_info .info .txt_wrap p {
+  color: #8d8d8d;
+  margin-top: 45px;
+}
+.main_info .info .txt_wrap .btn_wrap {
+  margin-top: 30px;
+}
+.main_info .info .txt_wrap .btn_more {
+  font-family: 'Montserrat',sans-serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.main_info .info .txt_wrap .btn_more:before {
+  content: '';
+  display: inline-block;
+  width: 50px;
+  height: 1px;
+  background: #000;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.main_info .info .img_wrap {
+  width: 58%;
+  height: 440px;
+  margin-top: 170px;
+  background: url(../images/intro_img1_pc.jpg) no-repeat 50% 0 / cover ;
+}
+.main_info .info .img_wrap a {
+  text-indent: -9999px;
+}
+
+.main_info .info02 {
+  margin-top: 175px;
+  flex-direction: row-reverse;
+}
+.main_info .info02 .txt_wrap {
+  text-align: left;
+  width: 58%;
+  padding-left: 0;
+}
+
+/* flex-item으로 margin병합 없음 */
+.main_info .info02 .img_wrap {
+  height: 620px;
+  width: 35%;
+  margin-top: -315px;
+  background-image: url(../images/intro_img2_pc.jpg);
+}
+
+
+.main_cook_banner {
+  height: 450px;
+  background: url(../images/middle_banner_pc.jpg) no-repeat 50% 50% / cover fixed;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.main_cook_banner .inner {
+  width: 100%;
+  padding: 0 20px;
+}
+.main_cook_banner p {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 100;
+  line-height: 1.25;
+}
+.main_cook_banner p strong {
+  font-weight: 500;
+}
+
+.main_cook_banner .btn_wrap {
+  margin-top: 25px;
+}
+.main_cook_banner .btn_wrap a {
+  display: inline-block;
+  color: #fff;
+  font-size: 2.2rem;
+  height: 60px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 58px;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  padding: 0 32px;
+  transition: all 0.4s;
+}
+.main_cook_banner .btn_wrap a:hover {
+  background: #fff;
+  color: #000;
+}
+.main_cook_banner .btn_wrap a sup {
+  vertical-align: 2px;
+}
+
+/* 메인 라이브 */
+.main_live {
+  padding: 100px 0;
+}
+.main_live .inner{
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+/* 페이지네이션은 아래기준이라 자동으로 내려감 */
+.main_live .live_slider {
+  padding-bottom: 200px;
+  overflow: visible;
+}
+.main_live .live_slider a {
+  display: block;
+  height: 230px;
+  position: relative;
+  overflow: hidden;
+}
+.main_live .live_slider a:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background: #dd3175 url(../images/ico_instagram.png) no-repeat 50% 50% / 25px;
+  z-index: 100;
+}
+/* 이미지 안의 글자가 나와야해서 object-fit:cover불가 */
+.main_live .live_slider a img {
+  height: 100%;
+  width: 100%;
+  transition: all 0.4s;
+}
+.main_live .live_slider a:hover img {
+  transform: scale(1.1);
+}
+.main_live .live_slider .txt_wrap {
+  padding-top: 30px;
+}
+.main_live .live_slider .txt_wrap .date {
+  color: #8b8b8b;
+  font-weight: 100;
+}
+.main_live .live_slider .txt_wrap p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-top: 10px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.main_live .live_slider .swiper-pagination {
+  bottom: 50px;
+}
+.main_live .live_slider .swiper-pagination span {
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+}
+.main_live .live_slider .swiper-pagination .swiper-pagination-bullet-active {
+  background: #000;
+}
+
+
+
+/* 메인뉴스 */
+
+.main_news {
+  padding: 100px 0;
+  background: #f8f8f8;
+}
+.main_news .inner {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.main_news .news {
+  border-top: 1px solid #000;
+}
+.main_news .news li {
+  padding: 24px 80px 24px 20px;
+  border-bottom: 1px solid #dfdfdf;
+  position: relative;
+}
+.main_news .news a {
+  display: flex;
+  justify-content: space-between;
+}
+.main_news .news p {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+/* 자동으로 옆에 붙게 됨 */
+.main_news .news .date {
+  color: #8d8d8d;
+  font-weight: 100;
+}
+.main_news .news .ico_plus {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translateY(-50%);
+  background: #d3d3d3;
+  text-indent: -9999px;
+}
+.main_news .news .ico_plus:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 1px;
+  transform: translateX(-50%);
+  width: 17px;
+  background: #fff;
+}
+.main_news .news .ico_plus:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 17px;
+  width: 1px;
+  background: #fff;
+}
+
+.main_event {
+  padding: 100px 0;
+}
+.main_event .inner {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+  position: relative;
+}
+.main_event .event {
+  display: flex;
+  justify-content: space-between;
+}
+.main_event .event li {
+  width: calc(50% - 20px);
+}
+.main_event .event .img_wrap {
+  padding-top: 39.65%;
+  border: 1px solid #d8d8d8;
+  position: relative;
+  overflow: hidden;
+}
+/* object-fit 은 height값이 고정일때 사용 */
+/* 비율이 다른 이미지 넣을 때 가운데정렬 후 width와 height중 하나를 100% / 튀어나오는 부분은 부모에 overflow-hidden */
+/* 이미지 비율을 유지할 때 사용 */
+/* .main_event .event .img_wrap img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  transform: translate(-50%,-50%);
+} */
+
+/* 이미지 비율 상관없이 레이아웃 맞출때 사용 */
+.main_event .event .img_wrap img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s;
+}
+.main_event .event .img_wrap:hover img {
+  transform: scale(1.1);
+}
+
+
+.main_event .event .txt_wrap {
+  padding-top: 30px;
+}
+.main_event .event .txt_wrap span {
+  color: #8d8d8d;
+  font-weight: 100;
+}
+.main_event .event .txt_wrap p {
+  margin-top: 10px;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+
+
+
+
+
+/* 태블릿 분기점 */
+@media(max-width:1200px) {
+  .main_slider .swiper-slide p {
+    font-size: 2.2rem;
+  }
+
+  .main_info {
+    padding: 30px 0;
+  }
+  .main_info .info {
+    flex-wrap: wrap;
+  }
+  .main_info .info .txt_wrap {
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
+    padding-top: 10px;
+  }
+  .main_info .info .txt_wrap h3 {
+    font-size: 2.6rem;
+  }
+  .main_info .info .txt_wrap h3 em {
+    font-size: 1.6rem;
+  }
+  .main_info .info .txt_wrap p {
+    margin-top: 15px;
+  }
+  .main_info .info .txt_wrap p br {
+    display: none;
+  }
+  .main_info .info .txt_wrap .btn_wrap {
+    margin-top: 15px;
+  }
+  .main_info .info .img_wrap {
+    order: -1;
+    margin-top: 0;
+    width: 100%;
+    padding-top: 65.67%;
+    height: 0;
+    background-image: url(../images/intro_img1.jpg);
+    /* padding %는 부모의 가로길이가 기준 */
+    /* 100 : x = 이미지 가로 : 이미지세로 */
+  }
+
+  .main_info .info02 {
+    margin-top: 40px;
+  }
+  .main_info .info02 .img_wrap {
+    background-image: url(../images/intro_img2.jpg);
+  }
+
+  .main_cook_banner {
+    height: 270px;
+    background: url(../images/middle_banner.jpg) no-repeat 50% 50% / cover;
+  }
+  .main_cook_banner p {
+    font-size: 2.6rem;
+    line-height: 1.19;
+  }
+  .main_cook_banner .btn_wrap {
+    margin-top: 16px;
+  }
+  .main_cook_banner .btn_wrap a {
+    font-size: 1.6rem;
+    height: 46px;
+    line-height: 44px;
+    padding: 0 24px;
+  }
+  
+
+  .main_live {
+    padding: 50px 0;
+  }
+  /* 패딩으로 비율만큼 영역만든 후에 img 띄워서 채우기 */
+  /* (이미지크기)551:324=100:x */
+  .main_live .live_slider a {
+    padding-top: 57.85%;
+    height: 0;
+  }
+  .main_live .live_slider a img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .main_live .live_slider .txt_wrap {
+    padding-top: 10px;
+  }
+  .main_live .live_slider .txt_wrap p {
+    margin-top: 3px;
+  }
+
+  .main_news {
+    padding: 50px 0;
+  }
+  .main_news .news li {
+    padding: 10px 60px 10px 0;
+  }
+  .main_news .news a {
+    flex-direction: column;
+  }
+  .main_news .news .date {
+    margin-top: 10px;
+  }
+  .main_news .news .ico_plus {
+    right: 0;
+    width: 30px;
+    height: 30px;
+  }
+  .main_news .news .ico_plus:before {
+    width: 13px;
+  }
+  .main_news .news .ico_plus:after {
+    height: 13px;
+  }
+
+  .main_event {
+    padding: 50px 0;
+  }
+  .main_event .event {
+    flex-wrap: wrap;
+  }
+  .main_event .event li {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+}
+
+
+/* 모바일 분기점 */
+@media (max-width:767px) {
+  .main_slider .slide01 {
+    background-image: url(../images/swiper01_img.jpg);
+  }
+  .main_slider .swiper-slide p {
+    font-size: 2.4rem;
+    letter-spacing: 0.83em;
+  }
+  .main_slider .swiper-slide p br {
+    display: block;
+  }
+
+  .main_info .info .txt_wrap h3 {
+    font-size: 2.2rem;
+  }
+  .main_info .info .txt_wrap h3 em {
+    font-size: 1.4rem;
+  }
+  .main_info .info .txt_wrap p {
+    font-size: 1.3rem;
+  }
+
+  .main_cook_banner {
+    height: 225px;
+  }
+  .main_cook_banner p {
+    font-size: 2.2rem;
+    line-height: 1.13;
+  }
+  .main_cook_banner .btn_wrap {
+    margin-top: 16px;
+  }
+  .main_cook_banner .btn_wrap a {
+    font-size: 1.4rem;
+    height: 40px;
+    line-height: 38px;
+    padding: 0 17px;
+  }
+
+  .main_live {
+    padding:  40px 0;
+  }
+  .main_live .live_slider  {
+    padding-bottom: 50px;
+  }
+  .main_live .live_slider .swiper-slide {
+    /* 스와이퍼에 인라인 스타일적용되있어서 !important */
+    width: calc(100% - 60px) !important;
+  }
+  .main_live .live_slider a:before {
+    width: 40px;
+    height: 40px;
+    background-size: 17px;
+  }
+  
+  .main_live .live_slider .txt_wrap .date {
+    font-size: 1.2rem;
+  }
+  .main_live .live_slider .txt_wrap p {
+    font-size: 1.5rem;
+  }
+
+  .main_live .live_slider .swiper-pagination {
+    bottom: 0;
+  }
+  .main_live .live_slider .swiper-pagination span {
+    width: 7px;
+    height: 7px;
+    margin: 0 5px;
+  }
+
+  .main_news {
+    padding: 40px 0;
+  }
+  .main_news .news p {
+    font-size: 1.5rem;
+  }
+  .main_news .news .date {
+    font-size: 1.2rem;
+  }
+
+  .main_event {
+    padding: 40px 0; 
+  }
+  .main_event .event li {
+    margin-bottom: 20px;
+  }
+  .main_event .event .txt_wrap {
+    padding-top: 6px;
+  }
+  .main_event .event .txt_wrap span {
+    font-size: 1.2rem;
+  }
+  .main_event .event .txt_wrap p {
+    font-size: 1.5rem;
+    margin-top: 4px;
+  }
+}
